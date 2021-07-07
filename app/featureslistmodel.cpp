@@ -356,7 +356,7 @@ QVariant FeaturesListModel::attributeFromValue( const int role, const QVariant &
   for ( int i = 0; i < mFeatures.count(); ++i )
   {
     QVariant d = data( index( i, 0 ), role );
-    if ( d == value )
+    if ( d.toString().trimmed() == value.toString().trimmed() )
     {
       QVariant key = data( index( i, 0 ), requestedRole );
       return key;
