@@ -100,7 +100,7 @@ Item {
     * in order to get values as
     */
   function getCurrentValueAsFeatureId() {
-    if ( allowMultipleValues && widgetValue != null && widgetValue.startsWith('{') )
+    if ( allowMultipleValues && widgetValue != null && widgetValue.toString().startsWith('{') )
     {
       let arr = vrModel.convertMultivalueFormat( widgetValue, FeaturesListModel.FeatureId )
       return Object.values(arr)
@@ -122,7 +122,7 @@ Item {
     let reset = false
 
     if ( widgetType === "textfield" ) {
-      if ( allowMultipleValues && widgetValue.startsWith('{') )
+      if ( allowMultipleValues && widgetValue.toString().startsWith('{') )
       {
         let strings = vrModel.convertMultivalueFormat( widgetValue )
         textField.text = strings.join(", ")
