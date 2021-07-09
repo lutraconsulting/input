@@ -214,11 +214,8 @@ void AndroidUtils::handleActivityResult( int receiverRequestCode, int resultCode
 
     QAndroidJniObject errorJNI = data.callObjectMethod( "getStringExtra", "(Ljava/lang/String;)Ljava/lang/String;", RESULT_STRING.object<jstring>() );
     // Internal cancelation due to an error
-    if ( !errorJNI.isValid() )
-    {
-      QString errorMsg = errorJNI.toString();
-      showToast( errorMsg );
-    }
+    QString errorMsg = errorJNI.toString();
+    showToast( errorMsg );
     return;
   }
 

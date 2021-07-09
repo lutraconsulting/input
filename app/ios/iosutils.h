@@ -41,6 +41,8 @@ class IosUtils: public QObject
 
   signals:
     void imageSelected( const QString &imagePath );
+    //! Used to show a notification to a user. Can be replaced by slot function similar to AndroidUtils::showToast using native Alert dialog.
+    void showToast( const QString &message );
     void positionKitChanged();
     void compassChanged();
 
