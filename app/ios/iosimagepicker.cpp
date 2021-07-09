@@ -71,7 +71,9 @@ void IOSImagePicker::onImagePickerFinished( bool successful, const QVariantMap &
   }
   else
   {
-    qWarning() << QString( "Failed with err" ).arg( data["error"].value<QString>() );
+    QString msg = QString( "Error:%1" ).arg( data["error"].value<QString>() );
+    qWarning() << msg;
+    emit notify( msg );
   }
 }
 
